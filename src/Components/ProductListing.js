@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useEffect} from "react";
+import { useDispatch} from "react-redux";
 import ProductComponent from "./ProductComponent";
-import { requestfetchProducts } from "../Thunk";
+import { requestfetchProducts} from "../Thunk";
 const ProductPage = () => {
-  const products = useSelector((state) => state.allProducts.products);
-  const dispatch = useDispatch();
-  useEffect(() => {
+   const dispatch = useDispatch();
+   useEffect(() => {
     dispatch(requestfetchProducts())
   }, [dispatch]);
   return (
-    <div className="ui grid container">
+    <div>
+      <center>
+       <br/><br/><br/><br/><br/>
+      <h1>All Products</h1>
+      <div >
       <ProductComponent />
+      </div>
+      </center>
     </div>
   );
 };
