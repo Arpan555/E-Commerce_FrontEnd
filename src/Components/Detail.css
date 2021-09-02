@@ -6,3 +6,14 @@
     width: auto;
     height: auto;
 }
+.div-cart{
+    border:1px solid black;
+    margin:auto;
+    width:500px;
+    height:250px;
+}
+.fix-size{
+    border:black;
+    width:200px;
+    height:150px;
+}

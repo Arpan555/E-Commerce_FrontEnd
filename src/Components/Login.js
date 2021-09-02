@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Link ,useHistory} from 'react-router-dom';
+import {Link ,useHistory,useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {requestLogin} from "../Thunk" 
 const Login = () => {
@@ -15,10 +15,13 @@ const Login = () => {
     
     const handleSubmit=(e)=>
     {   e.preventDefault()
-        dispatch(requestLogin(loginForm)); 
+        dispatch(requestLogin(loginForm));
         history.push("/")
-
-    }  
+       
+    } 
+      
+    
+    
   
   return (
     <div>

@@ -1,10 +1,11 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import {useHistory, Link } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { requestFilteredData } from "../Thunk";
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
   const dispatch=useDispatch()
+  const history=useHistory()
   const [filter,setFilter]=useState({category:"jewelery",limit:"5",sort:"desc"})
   const handleInputData=(e)=>{
     let {name,value}=e.target;

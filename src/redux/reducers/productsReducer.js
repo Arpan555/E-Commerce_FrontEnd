@@ -1,8 +1,8 @@
-import {SET_PRODUCTS,SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT, FILTER_DATA,ADD_CART,GET_CART} from "../actions/index.js"
+import {SET_PRODUCTS,SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT, FILTER_DATA,ADD_CART,GET_CART,CHECKOUT} from "../actions/index.js"
 const initialState={
     products: [],
-    carts:[]
-    }
+    cartData:[]
+  }
         
 export const productsReducer = (state = initialState,action) => {
   switch (action.type) {
@@ -11,14 +11,20 @@ export const productsReducer = (state = initialState,action) => {
     case FILTER_DATA:
       return{...state,products:action.payload}
       case ADD_CART:
-        return{
-          ...state,...action.payload
+         return{
+          ...state,
+          cartData: [...state.cartData, action.payload]
         }
       case GET_CART:
         return{
           ...state,
-          carts:action.payload
+          cartData:action.payload
         }
+        case CHECKOUT:
+          return{
+            ...state,
+            carts:action.payload
+          }
       default:
       return state;
   }

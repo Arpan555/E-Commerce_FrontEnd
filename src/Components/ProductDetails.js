@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
-import { useParams,Link } from "react-router-dom";
+import { useParams,useHistory} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Detail.css"
+import {addCart} from "../redux/actions/productsActions"
 import {requestfetchProductDetail} from "../Thunk"
 import { removeSelectedProduct } from "../redux/actions/productsActions";
 const ProductDetails = () => {
+
   const { productId } = useParams();
+  const token=useSelector(state=>state.register.token)
   let product = useSelector((state) => state.product);
   const { image, title, price, category, description } = product;
   const dispatch = useDispatch();
+  const history=useHistory()
+
   useEffect(() => {
     if(productId && productId!=="")
     {
@@ -30,8 +35,11 @@ const ProductDetails = () => {
               <h3 className="price-detail"><b>Price in ($): </b>{price}</h3>  
               <h3 className="category-detail"><b>Category: </b>{category}</h3>
               <h3 className="description-detail"><b>Description: </b>{description}</h3>
-              <Link to="/getcart">Cart</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Link to="/buynow">Buy Now</Link>
+              <button className="btn btn-primary" 
+              onClick={() => dispatch(addCart(product))}>Add Cart</button>  &nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="button" className="btn btn-primary" value="Buy Now" onClick={()=>
+              {!token?history.push("/login"):history.push(`/checkout`);}
+              } />
               </div>
             )}
     </center>

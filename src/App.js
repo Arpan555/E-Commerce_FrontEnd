@@ -17,7 +17,9 @@ function App() {
     <>
       <BrowserRouter>
           <Route>
-          <Link exact to="/">Home</Link>
+          <Link exact to="/">Home</Link>&nbsp;&nbsp;&nbsp;
+          <Link exact to="/getcart">Cart</Link>
+          
           {token ?
             <ul>
               <li><Link exact to="/logout">Logout</Link></li>
@@ -32,14 +34,17 @@ function App() {
             </ul>}
           </Route>
           <Switch>
-              <Route path="/" exact component={ProductPage} exact/>
+              <Route path="/" exact component={ProductPage}/>
+              <Route path="/product/:productId" component={ProductDetails} exact/>
+              <Route path="/addcart" component={Addcart} exact/>
+              <Route path="/getcart" component={Cart} exact/>
+              
               <Publicroute path="/signup" component={Signup}  exact/>
               <Publicroute path="/login" component={Login} exact/>
-              <Publicroute path="/product/:productId" component={ProductDetails} exact/>
-              <Publicroute path="/addcart" component={Addcart} exact/>
-              <Publicroute path="/getcart" component={Cart} exact/>
+              <Privateroute path="/buynow" component={Checkout} exact/>
               <Privateroute path="/logout" exact component={Logout} exact/>
-              <Publicroute path="/buynow" component={Checkout} exact/>
+              <Privateroute path="/checkout" exact component={Checkout} exact/>
+              
           </Switch>
       </BrowserRouter>
     </>

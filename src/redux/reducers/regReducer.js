@@ -1,8 +1,6 @@
 import {SIGNUP,LOGIN,LOGOUT} from "../actions/index"
 const initialState={
     token: localStorage.getItem("token"),
-    
-    
 }
 
 export const register=(state=initialState,action)=>{
