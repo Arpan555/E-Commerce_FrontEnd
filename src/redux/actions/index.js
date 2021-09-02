@@ -7,6 +7,7 @@ export const FILTER_DATA="FILTER_DATA"
 export const ADD_CART="ADD_CART"
 export const GET_CART="GET_CART"
 export const CHECKOUT="CHECKOUT"
+export const CLEAR_CART="CLEAR_CART"
 
 export const SIGNUP="SIGNUP"
 export const LOGIN="LOGIN"

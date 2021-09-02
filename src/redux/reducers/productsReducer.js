@@ -1,4 +1,4 @@
-import {SET_PRODUCTS,SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT, FILTER_DATA,ADD_CART,GET_CART,CHECKOUT} from "../actions/index.js"
+import {SET_PRODUCTS,SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT, FILTER_DATA,ADD_CART,GET_CART,CLEAR_CART,CHECKOUT} from "../actions/index.js"
 const initialState={
     products: [],
     cartData:[]
@@ -19,6 +19,11 @@ export const productsReducer = (state = initialState,action) => {
         return{
           ...state,
           cartData:action.payload
+        }
+      case CLEAR_CART:
+        return{
+          ...state,
+          cartData:[]
         }
         case CHECKOUT:
           return{

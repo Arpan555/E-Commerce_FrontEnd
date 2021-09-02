@@ -41,7 +41,7 @@ function App() {
               
               <Publicroute path="/signup" component={Signup}  exact/>
               <Publicroute path="/login" component={Login} exact/>
-              <Privateroute path="/buynow" component={Checkout} exact/>
+              <Publicroute path="/buynow" component={Checkout} exact/>
               <Privateroute path="/logout" exact component={Logout} exact/>
               <Privateroute path="/checkout" exact component={Checkout} exact/>
               

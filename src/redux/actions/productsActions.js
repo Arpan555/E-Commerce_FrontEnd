@@ -1,4 +1,4 @@
-import { SET_PRODUCTS,SELECTED_PRODUCT,REMOVE_SELECTED_PRODUCT,FILTER_DATA,ADD_CART,SIGNUP} from "./index.js";
+import { SET_PRODUCTS,SELECTED_PRODUCT,REMOVE_SELECTED_PRODUCT,FILTER_DATA,ADD_CART,SIGNUP,CLEAR_CART} from "./index.js";
 
 export const setProducts = (products) => {
   return {
@@ -29,6 +29,12 @@ export const addCart=(data)=>{
   return{
     type:ADD_CART,
     payload:data
+  }
+}
+export const clearCart=()=>{
+  return{
+    type:CLEAR_CART,
+  
   }
 }
 export const signUp=(data)=>{

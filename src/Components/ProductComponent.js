@@ -21,14 +21,14 @@ const ProductComponent = () => {
     return (<>
             <div className="card text-center">
                 <div className="overflow">
-                
+                <Link to={`/product/${id}`}>
                   <img className="img-detail" src={image} title={title} />
                       <div className="card-body">
                         <h3 className="card-title">{title}</h3>
                         <p className="card-text">{price}</p>
                         <p className="card-text">{category}</p>
                       </div>
-                      <Link to={`/product/${id}`}>More Details</Link>
+                </Link>
                 </div>  
             </div>
           
@@ -44,7 +44,7 @@ const ProductComponent = () => {
       <input type="number" name="limit" min="1" max="20" value={filter.limit} onChange={handleInputData}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label>Sorting</label>
       <input type="text" name="sort" value={filter.sort} onChange={handleInputData}/>
-      <input type="submit" value="filter"/>
+      <input type="submit" className="btn btn-primary m-3" value="Apply Filter"/>
     </form>
     <br/><br/>
   </center>

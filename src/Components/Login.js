@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
-import {Link ,useHistory,useParams} from 'react-router-dom';
+import {Link ,useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {requestLogin} from "../Thunk" 
 const Login = () => {
      const history=useHistory()
      const [loginForm,setLoginForm]=useState({username: '', password: ''})
      const dispatch = useDispatch()
+
      const handleInputData=(e)=>
     {
       let {name,value}=e.target;
@@ -16,7 +17,7 @@ const Login = () => {
     const handleSubmit=(e)=>
     {   e.preventDefault()
         dispatch(requestLogin(loginForm));
-        history.push("/")
+        history.push("/checkout")
        
     } 
       

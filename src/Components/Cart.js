@@ -1,9 +1,11 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import {clearCart} from "../redux/actions/productsActions"
 const Cart = () => {
     const cartData=useSelector(state=>state.allProducts.cartData)
     const token = useSelector(state =>state.register.token)
+    const dispatch = useDispatch()
     const history=useHistory()
 return(
         <>
@@ -24,8 +26,10 @@ return(
            <br/>
         
           {token?
-          <input type="button" className="btn btn-primary" value="checkout" 
+          <input type="button" className="btn btn-primary mx-5" value="Checkout" 
           onClick={()=>history.push('/checkout')}/>:""}
+          <input type="button" className="btn btn-primary" value="Clear Cart" 
+          onClick={()=>dispatch(clearCart())}/>
         
             </>
           ):(

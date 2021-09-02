@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const { image, title, price, category, description } = product;
   const dispatch = useDispatch();
   const history=useHistory()
-
+ 
   useEffect(() => {
     if(productId && productId!=="")
     {
@@ -36,7 +36,9 @@ const ProductDetails = () => {
               <h3 className="category-detail"><b>Category: </b>{category}</h3>
               <h3 className="description-detail"><b>Description: </b>{description}</h3>
               <button className="btn btn-primary" 
-              onClick={() => dispatch(addCart(product))}>Add Cart</button>  &nbsp;&nbsp;&nbsp;&nbsp;
+              onClick={() => {dispatch(addCart(product))
+              alert(`${title} Added In Cart`)}
+              }>Add Cart</button>  &nbsp;&nbsp;&nbsp;&nbsp;
               <input type="button" className="btn btn-primary" value="Buy Now" onClick={()=>
               {!token?history.push("/login"):history.push(`/checkout`);}
               } />

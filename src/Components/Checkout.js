@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 const Checkout = () => {
     const cartData=useSelector(state=>state.allProducts.cartData)
-    const [entryForm,setEntryForm]=useState({name:"",phone:"",address:""})
+    const [entryForm,setEntryForm]=useState({name:"",email:"",phone:"",address:""})
     const handleInputData=(e)=>{
         let {name,value}=e.target;
       setEntryForm({...entryForm,[name]:value})
@@ -32,9 +32,12 @@ const Checkout = () => {
               {cartData.length>0?(
                   <>
                   <h2>Order Details</h2>
+                  <p>Shipping Address Details</p>
                  <form method="POST" onSubmit={handleSubmit}>
                         <label htmlFor="html">Name: </label> &nbsp;&nbsp;
                         <input type="text" name="name" onChange={handleInputData} required /><br/><br/>
+                        <label htmlFor="html">Email: </label> &nbsp;&nbsp;
+                        <input type="email" name="email" onChange={handleInputData} required /><br/><br/>
                         <label htmlFor="html">Number: </label> &nbsp;&nbsp;
                         <input type="number" name="number" onChange={handleInputData} required/><br/><br/>
                         <label htmlFor="html">Address: </label> &nbsp;&nbsp;
